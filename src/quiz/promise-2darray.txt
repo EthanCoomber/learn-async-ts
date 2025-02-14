@@ -1,3 +1,8 @@
+- Extract the code in the setTimeout function and replace the setTimeout function  with the extracted code. Then run the main script. 
+- Is there a difference in the flow of execution from when the code was in the setTimeout function?
+- Is the flow of execution in both these examples different from the flow of execution with the examples using the fetch() API, which also returns a promise? 
+- If yes, explain the code execution difference. Add your explanation to this file.
+
 The flow of execution in this example is different from examples using the fetch() API.
 
 In this example with sum2DArray(), the code executes synchronously within the Promise executor function. 
@@ -6,7 +11,6 @@ Even though we're using a Promise, the actual computation happens immediately an
 1. When sum2DArray() is called, it creates a new Promise
 2. The Promise executor function runs synchronously, calculating the sum immediately
 3. Only after the sum is calculated does it call resolve() with the result
-4. The console.log statements show this synchronous execution - we see "Sum called" followed immediately by all the "Adding X to sum" logs
 
 In contrast, with the fetch() API:
 
