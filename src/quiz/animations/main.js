@@ -48,27 +48,20 @@ var alice10 = document.querySelector("#alice1");
 var alice20 = document.querySelector("#alice2");
 var alice30 = document.querySelector("#alice3");
 if (alice10 && alice20 && alice30) {
-    // Using async/await for cleaner sequential animation
     (function () { return __awaiter(_this, void 0, void 0, function () {
         var err_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 4, , 5]);
-                    // Wait for alice1 animation to complete
                     return [4 /*yield*/, alice10.animate(aliceTumbling1, aliceTiming1).finished];
                 case 1:
-                    // Wait for alice1 animation to complete
                     _a.sent();
-                    // Then start and wait for alice2
                     return [4 /*yield*/, alice20.animate(aliceTumbling1, aliceTiming1).finished];
                 case 2:
-                    // Then start and wait for alice2
                     _a.sent();
-                    // Finally animate alice3
                     return [4 /*yield*/, alice30.animate(aliceTumbling1, aliceTiming1).finished];
                 case 3:
-                    // Finally animate alice3
                     _a.sent();
                     return [3 /*break*/, 5];
                 case 4:
