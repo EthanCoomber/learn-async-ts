@@ -19,5 +19,5 @@ This is why fetch() is truly asynchronous - it doesn't block the main thread whi
 Our sum2DArray() example, while using Promises, is still executing synchronously and blocking the main thread
 during the calculation.
 
-To make sum2DArray() truly asynchronous like fetch(), we would need to delegate the work to another thread
+To make sum2DArray() truly asynchronous like fetch(), we need to delegate the work to another thread
 or use async APIs like setTimeout() to defer the computation.

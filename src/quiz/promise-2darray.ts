@@ -5,10 +5,15 @@
  * or rejects if the array is empty
  */
 function sum2DArray(arr: number[][]): Promise<number> {
+    if (arr.length === 0) {
+        return Promise.reject('Cannot sum an empty array');
+    }
     return new Promise((resolve, reject) => {
         console.log('Sum called ... ');
+        
         if(arr.length === 0) {
             reject('Cannot sum an empty array');
+            return;
         }
         
         let sum = 0;
@@ -38,7 +43,7 @@ sumPromise1
         console.log('sumPromise1 result:', sum1);
     })
     .catch((error) => {
-        console.error('sumPromise1 error:', error);
+        console.log('sumPromise1 error:', error);
     });
 
 const sumPromise2 = sum2DArray([]);
@@ -47,5 +52,7 @@ sumPromise2
         console.log('sumPromise2 result:', sum2);
     })
     .catch((error) => {
-        console.error('sumPromise2 error:', error);
+        console.log('sumPromise2 error:', error);
     });
+
+console.log('End of script');

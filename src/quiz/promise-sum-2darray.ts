@@ -3,11 +3,9 @@
  * @param row Array of numbers representing one row
  * @returns Promise that resolves to the sum of the row
  */
-function sumRow(row: number[]): Promise<number> {
-    return new Promise((resolve) => {
-        const sum = row.reduce((acc, curr) => acc + curr, 0);
-        resolve(sum);
-    });
+async function sumRow(row: number[]): Promise<number> {
+    const sum = row.reduce((acc, curr) => acc + curr, 0);
+    return sum;
 }
 
 /**
@@ -16,14 +14,17 @@ function sumRow(row: number[]): Promise<number> {
  * @returns Promise that resolves to the total sum
  */
 async function sumConcurrent2DArray(arr: number[][]): Promise<number> {
-    // Create array of promises, one for each row
-    const rowPromises = arr.map(row => sumRow(row));
+    console.log('Starting to sum 2D array concurrently...');
     
-    // Await all row sums concurrently
-    const rowSums = await Promise.all(rowPromises);
+    let totalSum = 0;
+    for (const row of arr) {
+        const rowSum = await sumRow(row);
+        console.log('Row sum completed:', rowSum);
+        totalSum += rowSum;
+    }
     
-    // Sum up all the row sums
-    return rowSums.reduce((acc, curr) => acc + curr, 0);
+    console.log('Final sum calculated:', totalSum);
+    return totalSum;
 }
 
 const array2D_1 = [
